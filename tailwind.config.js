@@ -33,7 +33,11 @@ module.exports = {
         green: "#13997c",
         blue: "#0f172a",
         yellow: "#ffba00",
-        white20:"rgb(255 255 255 / 20%)"
+        white20: "rgb(255 255 255 / 20%)",
+        "light-black": "#1A1919",
+        gray300: "#E4E7EC",
+        "footer-icon": "#98A2B3",
+        "footer-border": "#475467",
       },
     },
   },
