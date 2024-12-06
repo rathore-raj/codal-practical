@@ -6,7 +6,7 @@ import FooterAccordion from "../core/footer-accordion";
 
 export default function Footer() {
   return (
-    <footer className="p-10 bg-light-black">
+    <footer className="py-6 px-5 sm:p-8 xl:p-10 bg-light-black">
       <div className="pb-8 xl:pb-16 border-b border-gray">
         <div className="flex flex-wrap justify-between -mx-4 gap-y-5">
           <div className="px-4 lg:w-1/2">

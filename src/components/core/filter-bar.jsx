@@ -78,7 +78,7 @@ export default function FilterBar() {
 
   return (
     <aside
-      className={`filterBar transition ease-in-out w-full lg:w-3/12 md:w-2/5 shrink-0 bg-white md:static fixed z-10 top-0 left-0 overflow-hidden overflow-y-auto md:h-auto h-screen md:translate-x-0 ${
+      className={`filterBar transition ease-in-out w-full lg:w-3/12 md:w-1/4 shrink-0 bg-white md:static fixed z-10 top-0 left-0 overflow-hidden overflow-y-auto md:h-auto h-screen md:translate-x-0 ${
         isSideBarOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >

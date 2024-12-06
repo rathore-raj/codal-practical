@@ -7,7 +7,7 @@ export default function Breadcrumbs() {
     <div className="breadcrumbs py-4 mb-2 text-light-mid text-sm">
       <div className="container">
         <nav>
-          <ol className="list-none p-0 inline-flex">
+          <ol className="list-none p-0 inline-flex flex-wrap gap-y-3">
             <li className="flex items-center">
               <Link href="#" className="underline">
                 Browse Categories

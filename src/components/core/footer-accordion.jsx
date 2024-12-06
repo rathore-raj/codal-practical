@@ -13,7 +13,7 @@ const FooterAccordion = ({ title, children }) => {
   return (
     <div className=" last:mb-0 sm:hidden mb-8">
       <div
-        className="flex justify-between items-center cursor-pointer px-4"
+        className="flex justify-between items-center cursor-pointer"
         onClick={toggleAccordion}
       >
         <h3 className="font-semibold text-white">{title}</h3>
