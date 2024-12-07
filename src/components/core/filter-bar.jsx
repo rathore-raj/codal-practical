@@ -96,18 +96,19 @@ export default function FilterBar() {
           </button>
         </div>
         <div className="flex flex-wrap gap-2 mb-8">
-          {!isPending &&
-            allFilterList.flatMap(([key, list]) => {
-              return list.map((val) => (
-                <Chip
-                  key={val}
-                  filterKey={key}
-                  text={val}
-                  startTransition={startTransition}
-                  setFilters={setFilters}
-                />
-              ));
-            })}
+          {isPending
+            ? "Getting filters..."
+            : allFilterList.flatMap(([key, list]) => {
+                return list.map((val) => (
+                  <Chip
+                    key={val}
+                    filterKey={key}
+                    text={val}
+                    startTransition={startTransition}
+                    setFilters={setFilters}
+                  />
+                ));
+              })}
         </div>
       </div>
       {Filters.map(({ label, filters }) => (
