@@ -1,4 +1,4 @@
-import { FooterLinks } from "@/data/footer-link";
+import { FooterLinks } from "@/data/footer";
 import { Facebook, Github, Linkedin, Twitter, Youtube } from "lucide-react";
 import Link from "next/link";
 import React from "react";

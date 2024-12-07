@@ -4,22 +4,7 @@ import { ChevronDown, Menu, Search, ShoppingCart, User } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import SearchBar from "../core/search-bar";
-
-const mainNavLinks = [
-  { label: "Browse Categories", href: "#" },
-  { label: "Who We Serve", href: "#" },
-  { label: "What We Do", href: "#" },
-  { label: "Who We Are", href: "#" },
-];
-
-const secondaryNavLinks = [
-  { label: "Lubricants", href: "/lubricants" },
-  { label: "Chemicals", href: "/chemicals" },
-  { label: "Supplies", href: "/supplies" },
-  { label: "Equipment", href: "/equipment" },
-  { label: "Auto Parts", href: "/auto-parts" },
-  { label: "Purchased Products", href: "/purchased-products" },
-];
+import { mainNavLinks, secondaryNavLinks } from "@/data/header";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

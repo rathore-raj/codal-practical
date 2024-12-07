@@ -6,7 +6,7 @@ import { getCurrentPage, getNonEmptyFilterList, perPage } from "@/util/common";
 
 export default function Home({ searchParams }) {
   const currentPage = getCurrentPage(+searchParams.page);
-  const sortBy = searchParams.sortBy ?? "price-high";
+  const sortBy = searchParams.sortBy;
 
   const currentBrands = getNonEmptyFilterList(searchParams.brand ?? "");
   const currentViscosity = getNonEmptyFilterList(searchParams.viscosity ?? "");

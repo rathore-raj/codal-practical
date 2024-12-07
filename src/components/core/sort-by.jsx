@@ -4,8 +4,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { startTransition, useOptimistic } from "react";
 
 const options = [
-  { label: "Price: High to Low", value: "price-high" },
   { label: "Price: Low to High", value: "price-low" },
+  { label: "Price: High to Low", value: "price-high" },
 ];
 
 const searchParamsName = "sortBy";
@@ -13,7 +13,7 @@ const searchParamsName = "sortBy";
 export default function SortBy() {
   const searchParams = useSearchParams();
   const [sortBy, setSortBy] = useOptimistic(
-    searchParams.get(searchParamsName) ?? "price-high"
+    searchParams.get(searchParamsName) ?? ""
   );
   const pathname = usePathname();
   const { push } = useRouter();
@@ -40,6 +40,9 @@ export default function SortBy() {
         value={sortBy}
         onChange={onSort}
       >
+        <option value="" disabled>
+          Select Sort By
+        </option>
         {options.map(({ label, value }) => (
           <option key={value} value={value}>
             {label}

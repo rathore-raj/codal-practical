@@ -1,30 +1,24 @@
 "use client";
-import React, {
-  useContext,
-  useEffect,
-  useOptimistic,
-  useTransition,
-} from "react";
+import { Filters } from "@/data/filters";
+import useFilter from "@/hooks/use-filter";
+import { X } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useContext, useEffect, useOptimistic, useTransition } from "react";
+import { AppContext } from "../providers/app-context";
 import Chip from "./chip";
 import FilterAccordion from "./filter-accordion";
 import SortBy from "./sort-by";
-import { X } from "lucide-react";
-import { AppContext } from "../providers/app-context";
-import { Filters } from "@/data/filters";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { getNonEmptyFilterList } from "@/util/common";
 
 export default function FilterBar() {
   const { isSideBarOpen, setIsSideBarOpen } = useContext(AppContext);
+  const { brand, viscosity, size } = useFilter();
+
   const searchParams = useSearchParams();
-  const currentBrands = searchParams.get("brand") ?? "";
-  const currentViscosity = searchParams.get("viscosity") ?? "";
-  const currentSize = searchParams.get("size") ?? "";
 
   const [filters, setFilters] = useOptimistic({
-    brand: getNonEmptyFilterList(currentBrands),
-    viscosity: getNonEmptyFilterList(currentViscosity),
-    size: getNonEmptyFilterList(currentSize),
+    brand,
+    viscosity,
+    size,
   });
 
   const [isPending, startTransition] = useTransition();

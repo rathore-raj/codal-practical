@@ -1,8 +1,7 @@
 "use client";
 
-import { getNonEmptyFilterList } from "@/util/common";
+import useFilter from "@/hooks/use-filter";
 import { Filter } from "lucide-react";
-import { useSearchParams } from "next/navigation";
 import { useContext } from "react";
 import { AppContext } from "../providers/app-context";
 import Pagination from "./pagination";
@@ -15,14 +14,9 @@ export default function Filters({
   indexOfFirstProduct,
 }) {
   const { setIsSideBarOpen } = useContext(AppContext);
-  const searchParams = useSearchParams();
-  const currentBrands = getNonEmptyFilterList(searchParams.get("brand") ?? "");
-  const currentViscosity = getNonEmptyFilterList(
-    searchParams.get("viscosity") ?? ""
-  );
-  const currentSize = getNonEmptyFilterList(searchParams.get("size") ?? "");
-  const filterCount = [...currentBrands, ...currentViscosity, ...currentSize]
-    .length;
+  const { brand, viscosity, size } = useFilter();
+
+  const filterCount = [...brand, ...viscosity, ...size].length;
 
   return (
     <div className="flex flex-wrap items-center justify-between mb-4 gap-3">
