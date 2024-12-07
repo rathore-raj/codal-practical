@@ -33,7 +33,7 @@ export default function Header() {
                 IPSUM
               </Link>
               <nav
-                className={`fixed xl:static bg-black w-full transition ease-in-out duration-300 z-10 top-16 left-0 overflow-y-auto h-screen xl:h-auto  ${
+                className={`fixed xl:static bg-black w-full transition ease-in-out duration-300 z-50	 top-16 left-0 overflow-y-auto h-screen xl:h-auto  ${
                   isMobileMenuOpen
                     ? "translate-x-0 xl:translate-x-0"
                     : "-translate-x-full xl:translate-x-0"
