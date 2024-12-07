@@ -1,19 +1,16 @@
 "use client";
 
-import { ChevronDown, Menu, Search, ShoppingCart, User } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import SearchBar from "../core/search-bar";
 import { mainNavLinks, secondaryNavLinks } from "@/data/header";
+import useDisableBodyScroll from "@/hooks/use-disable-body-scroll";
+import { ChevronDown, Menu, ShoppingCart, User, X } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import SearchBar from "../core/search-bar";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-
-  useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
-    document.body.style.height = isMobileMenuOpen ? "100vh" : "auto";
-  }, [isMobileMenuOpen]);
+  useDisableBodyScroll(isMobileMenuOpen);
 
   return (
     <header>
@@ -25,7 +22,11 @@ export default function Header() {
               onClick={toggleMobileMenu}
               aria-label="Toggle mobile menu"
             >
-              <Menu className="h-6 w-6" />
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
             <div className="flex items-center xl:gap-6">
               <Link href="/" className="text-2xl font-bold">

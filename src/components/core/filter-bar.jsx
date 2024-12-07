@@ -1,9 +1,10 @@
 "use client";
 import { Filters } from "@/data/filters";
+import useDisableBodyScroll from "@/hooks/use-disable-body-scroll";
 import useFilter from "@/hooks/use-filter";
 import { X } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useContext, useEffect, useOptimistic, useTransition } from "react";
+import { useContext, useOptimistic, useTransition } from "react";
 import { AppContext } from "../providers/app-context";
 import Chip from "./chip";
 import FilterAccordion from "./filter-accordion";
@@ -25,11 +26,7 @@ export default function FilterBar() {
 
   const pathname = usePathname();
   const { push } = useRouter();
-
-  useEffect(() => {
-    document.body.style.overflow = isSideBarOpen ? "hidden" : "auto";
-    document.body.style.height = isSideBarOpen ? "100vh" : "auto";
-  }, [isSideBarOpen]);
+  useDisableBodyScroll(isSideBarOpen);
 
   const onFilter = (key, value) => {
     const params = new URLSearchParams(searchParams);
